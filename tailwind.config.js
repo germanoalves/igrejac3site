@@ -4,6 +4,9 @@ module.exports = {
 	darkMode: "class",
 	theme: {
 		extend: {
+			backgroundImage: {
+				'hero-pattern': "url('../../../assets/img/img-top.jpg')",				
+			  },
 			colors: {
 				body: "rgb(var(--color-bg))",
 				"box-bg": "rgb(var(--color-box))",
