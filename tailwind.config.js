@@ -7,6 +7,11 @@ module.exports = {
 			backgroundImage: {
 				'hero-pattern': "url('../../../assets/img/img-top.jpg')",				
 			  },
+			  fontFamily: {
+				'poppins': ['Poppins', 'sans-serif'],
+				'rubik': ['Rubik','sans-serif'],
+				'open': [ 'Open Sans', 'sans-serif']
+			  },  
 			colors: {
 				body: "rgb(var(--color-bg))",
 				"box-bg": "rgb(var(--color-box))",
