@@ -10,7 +10,8 @@ module.exports = {
 			  fontFamily: {
 				'poppins': ['Poppins', 'sans-serif'],
 				'rubik': ['Rubik','sans-serif'],
-				'open': [ 'Open Sans', 'sans-serif']
+				'open': [ 'Open Sans', 'sans-serif'],
+				'inter': [ 'Inter', 'sans-serif']
 			  },  
 			colors: {
 				body: "rgb(var(--color-bg))",

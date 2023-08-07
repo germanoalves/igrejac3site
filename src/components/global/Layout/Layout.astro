@@ -175,11 +175,11 @@ const {
 			// This is a hack to get vite-plugin-pwa to generate a sw.js file.
 			// Do not remove this script tag.
 		</script>
-		<script>
+		<!-- <script>
 			const switchTheme = document.querySelector(
 			  "[data-switch-theme]"
 			) as HTMLButtonElement;
-		
+			
 			if (
 			  localStorage.getItem("appTheme") === "dark" ||
 			  (!("appTheme" in localStorage) &&
@@ -214,7 +214,48 @@ const {
 				}
 			  });
 			}
+		  </script> -->
+
+		  <script>
+			const switchTheme = document.querySelector(
+			  "[data-switch-theme]"
+			) as HTMLButtonElement;
+		  
+			// Verifica se a chave "appTheme" está definida como "dark" no localStorage
+			if (localStorage.getItem("appTheme") === "dark") {
+			  document.documentElement.classList.add("dark");
+			} else {
+			  document.documentElement.classList.remove("dark");
+			}
+		  
+			// Adiciona o evento de clique para alternar o tema
+			if (switchTheme) {
+			  switchTheme.addEventListener("click", (e) => {
+				e.preventDefault();
+				const doc = document.documentElement;
+				if (doc) {
+				  if (localStorage.getItem("appTheme")) {
+					if (localStorage.getItem("appTheme") === "light") {
+					  doc.classList.add("dark");
+					  localStorage.setItem("appTheme", "dark");
+					} else {
+					  doc.classList.remove("dark");
+					  localStorage.setItem("appTheme", "light");
+					}
+				  } else {
+					if (doc.classList.contains("dark")) {
+					  doc.classList.remove("dark");
+					  localStorage.setItem("appTheme", "light");
+					} else {
+					  doc.classList.add("dark");
+					  localStorage.setItem("appTheme", "dark");
+					}
+				  }
+				}
+			  });
+			}
 		  </script>
+		  
 		  <script>
 			const toggleMenu = document.querySelector(
 			  "[data-toggle-nav]"
@@ -270,9 +311,7 @@ const {
 	  --color-bg: 3 7 18;
 	  --color-box: 17 24 39;
 	  --box-border: 243 244 246/0.1;
-	  --box-sd: transparent;
-  
-	  
+	  --box-sd: transparent;	  
 	  --heading-1:  255 255 255;
 	  --heading-2:  243 244 246;
 	  --heading-3:  209 213 219;
