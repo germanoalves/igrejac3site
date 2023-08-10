@@ -1,5 +1,5 @@
 import { defineConfig } from "astro/config"
-import Compress from "astro-compress";
+
 
 
 // Astro integration imports
@@ -19,8 +19,7 @@ export default defineConfig({
 				applyBaseStyles: false,
 				path: "./tailwind.config.js"
 			}
-		}),
-		Compress(),		
+		}),		
 		sitemap(),		
 	],
 	vite: {
